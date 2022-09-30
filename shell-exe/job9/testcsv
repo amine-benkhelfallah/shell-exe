@@ -1,0 +1,35 @@
+ #!/bin/bash
+ 
+ my_input="~/shell-exe/job9/Shell_Userlist.csv
+ declare -a ident
+ declare -a fname
+ declare -a lname
+ declare -a passw
+ declare -a statu
+ 
+ while IFS=, read -r Id Prenom Nom Mdp Role
+ 
+         ident+=("$Id")
+         fname+=("$Prenom")
+         lname+=("$Nom")
+         passw+=("$Mdp")
+         statu+=("$Role")
+
+done<$my_input
+for index in " ${!user[@]}";
+do 
+
+sudo groupadd "${dept[$index]}";
+sudo useradd -g "${dept[$index]}"; \
+sudo useradd -d "/home/${user[$index]}" \
+sudo useradd -s "/bin/bash"
+sudo useradd -p "$(echo "${pass[$index]}" | openssl passwd -1 -stdin)" "${user[$index]}
+             
+done
+
+
+
+
+
+
+
